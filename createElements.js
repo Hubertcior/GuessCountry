@@ -7,11 +7,13 @@ export default class CreateElements extends ReadingData{
         super();
         this.board = document.querySelector("#parameters");
         this.inputSide = document.querySelector("#input");
+
+        this.img;
     }
 
     async createScene(){
        const inf = await this.readRandomCountry();
-       
+     
        const capital = document.createElement("p")
        capital.innerHTML = "Capital";
        capital.className = "gameObject";
@@ -61,6 +63,7 @@ export default class CreateElements extends ReadingData{
        buttonCheck.id = "check";
        this.inputSide.appendChild(buttonCheck);
 
+       this.img = inf.img;
        return inf.country;
     }
 
@@ -69,15 +72,21 @@ export default class CreateElements extends ReadingData{
 
       const caption = document.createElement("h1");
       const button = document.createElement("button");
+      const img = document.createElement("img");
         
       caption.innerHTML = "Congrats!!!";
       caption.id = "endCaption";
       caption.className = "gameObject";
+
+      img.src = this.img;
+      img.className = "gameObject";
+
       button.innerHTML = "Next";
       button.className = "gameObject";
       button.id = "next";
-        
+
       this.board.appendChild(caption);
+      this.board.appendChild(img);
       this.inputSide.appendChild(button);
     }
 
