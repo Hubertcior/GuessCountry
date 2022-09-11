@@ -6,6 +6,7 @@ export default class CreateElements extends ReadingData{
     constructor(){
         super();
         this.board = document.querySelector("#parameters");
+        this.inputSide = document.querySelector("#input");
     }
 
     async createScene(){
@@ -48,36 +49,36 @@ export default class CreateElements extends ReadingData{
        input.className = "gameObject";
        this.board.appendChild(input);
 
-       const buttonCheck = document.createElement("button");
-       buttonCheck.className = "gameObject";
-       buttonCheck.innerHTML = "Check";
-       buttonCheck.id = "check";
-       this.board.appendChild(buttonCheck);
-
        const buttonNext = document.createElement("button");
        buttonNext.className = "gameObject";
        buttonNext.innerHTML = "Next";
        buttonNext.id = "next";
-       this.board.appendChild(buttonNext);
+       this.inputSide.appendChild(buttonNext);
 
-       console.log(inf)
+       const buttonCheck = document.createElement("button");
+       buttonCheck.className = "gameObject";
+       buttonCheck.innerHTML = "Check";
+       buttonCheck.id = "check";
+       this.inputSide.appendChild(buttonCheck);
+
        return inf.country;
     }
 
     async winScene (){
-      const inputSide = document.querySelector("#input");
+     
 
       const caption = document.createElement("h1");
       const button = document.createElement("button");
         
       caption.innerHTML = "Congrats!!!";
+      caption.id = "endCaption";
       caption.className = "gameObject";
       button.innerHTML = "Next";
       button.className = "gameObject";
       button.id = "next";
         
-      inputSide.appendChild(caption);
-      inputSide.appendChild(button);
+      this.board.appendChild(caption);
+      this.inputSide.appendChild(button);
     }
 
     tryAgain(){ 
