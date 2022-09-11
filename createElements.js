@@ -83,22 +83,27 @@ export default class CreateElements extends ReadingData{
 
     tryAgain(){ 
     const check = document.querySelector("#try-again");
-    const tryAgainCaption = document.createElement("h2");
-
+  
     if(check == null){
+        const tryAgainCaption = document.createElement("h2");
         tryAgainCaption.className = "gameObject";
         tryAgainCaption.innerHTML = "Try Again";
         tryAgainCaption.id = "try-again";
         this.board.appendChild(tryAgainCaption); 
+
+        this.glowEffect(tryAgainCaption);
     }
     else if(check != null){
-     
-      check.classList.add("anim");
+        this.glowEffect(check);
+      }
+    }
+
+    glowEffect = (item) =>{
+      item.classList.add("anim");
 
       setTimeout(function(){
-        check.classList.remove("anim");
+        item.classList.remove("anim");
       },1000)
-    }
     }
 
     

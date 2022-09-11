@@ -31,9 +31,12 @@
 
 #play-button{
     position: absolute;
-    bottom:10px;
-    left:calc(50% - 50px);
-    width: 100px;
+    left:calc(50% - 100px);
+    width: 200px;
+    height: 30px;
+    border-radius: 10px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 20px;
 }
 
 #parameters input {
